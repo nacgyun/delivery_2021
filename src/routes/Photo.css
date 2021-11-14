@@ -1,0 +1,37 @@
+.uploadPhoto__store {
+  background-color: #e0e0e0;
+  width: 170px;
+  padding: 13px 0px;
+  text-align: center;
+  font-size: 27px;
+  font-weight: 600;
+  margin: 30px 30px 30px 5%;
+  border-radius: 10px;
+}
+.uploadPhoto__plz {
+  margin: 0px 5% 0px 5%;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+}
+.uploadPhoto__uploadDiv {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+.input-file-button {
+  background-color: #e0e0e0;
+  padding: 10px 30px 10px 30px;
+  border-radius: 10px;
+}
+.uploadPhoto__btnDiv {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0px 5%;
+}
+.uploadPhoto__btn {
+  padding: 10px 30px 10px 30px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 10px;
+}

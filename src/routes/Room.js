@@ -28,6 +28,9 @@ function Room(props) {
       setJoin(!join);
       console.log("change join")
   }
+  if(props.location.state && "purchaser" in props.location.state){
+      console.log(props.location.state.purchaser)
+  }
   useEffect(() => {
     if(props.location.state && props.location.state.join){
     setJoin(props.location.state.join)
@@ -36,6 +39,7 @@ function Room(props) {
   if(room.length == 0) {
     return <WrongWay />
   }
+  console.log(room)
   return (
     <>
       <div className="room">
@@ -67,8 +71,13 @@ function Room(props) {
                 }}}> {room.shop} </Link>) : <span>{room.shop}</span>))}
             </span>
             </div>
-            <div className="room__toggles">
-              {join ?
+            <div className="room__toggles">{room.map(room => (props.location.state && "purchaser" in props.location.state) ? <Link to={{
+                pathname:`/rooms/${rid}/Uploadphoto`,
+                state: {
+                  shop:room.shop,
+                  rid:rid
+                }}}><button className="room__closing-button">모집마감</button></Link> : <div className="room__closing-button-hide"></div>)}
+              {join || (props.location.state && "purchaser" in props.location.state)?
               <div className="room__menu">
                 <Button variant="primary" onClick={handleShow} id="room__menu-button" className>
               메뉴
@@ -95,7 +104,8 @@ function Room(props) {
               </Modal.Footer>
                 </Modal>
               </div> : <div className="room__menu-hide"></div>}
-              <div className="room__join"><button className="room__join-button" onClick={changeJoin}>{(props.location.state && props.location.state.confirmMenu) ? (<Link to={`/rooms/${rid}/mannerRate`}>음식 대기</Link>) : (join ? "나가기" : "입장")}</button></div>
+              <div className="room__join">{(props.location.state && "purchaser" in props.location.state) ? <button className="room__join-button"> 방장 변경</button> : 
+              <button className="room__join-button" onClick={changeJoin}>{(props.location.state && props.location.state.confirmMenu) ? (<Link to={`/rooms/${rid}/mannerRate`}>음식 대기</Link>) : (join ? "나가기" : "입장")}</button>}</div>
             </div>
       </div>
       <div className="room__graph">그래프</div>

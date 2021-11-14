@@ -23,7 +23,8 @@ function Rooms() {
             <div id="roomlist__category-dessert"><input type="button" id="dessert" value="카페·디저트" /></div>
         </div>
         <div className="roomlist__list">
-            {rooms.map(room => (<div>
+            {rooms.map(room => (
+            <div className="roomlist__list-div">
                 <div>
                     <div className="roomlist__list-store">{room.shop}</div>
                     <div className="roomlist__list-time">시간</div>

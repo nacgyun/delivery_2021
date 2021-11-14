@@ -23,7 +23,12 @@ function Addroom() {
                 <label>식사</label>
                 <input type="checkbox"></input>
                 <label>카페·디저트</label>
-                <Link to={`/rooms/${exRid}`}><button>완료</button></Link>
+                <Link to={{
+                        pathname: `/rooms/${exRid}`,
+                        state: {
+                            purchaser: true,
+                        }
+                        }}><button>완료</button></Link>
             </form>
         </div>
     </>
