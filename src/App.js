@@ -7,6 +7,8 @@ import Room from "./routes/Room"
 import Addroom from "./routes/Addroom";
 import ReceivePhoto from "./routes/ReceivePhoto";
 import MannerRate from "./routes/MannerRate";
+import Photo from "./routes/Photo";
+import Time from "./routes/Time";
 
 function App () {
   return (
@@ -19,6 +21,8 @@ function App () {
       <Route path="/rooms/:rid" exact={true} component={Room} ></Route>
       <Route path="/rooms/:rid/mannerRate" exact={true} component={MannerRate} ></Route>
       <Route path="/rooms/:rid/photo" component={ReceivePhoto} ></Route>
+      <Route path="/rooms/:rid/uploadphoto" component={Photo} ></Route>
+      <Route path="/rooms/:rid/time" component={Time} ></Route>
       <Route path="/rooms" exact={true} component={Rooms} ></Route>
         </Switch>
       </div>
